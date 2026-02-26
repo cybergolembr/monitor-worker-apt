@@ -1,0 +1,7 @@
+# Ingore local GPG keys
+*.key
+*.gpg
+
+# Ignore system files
+.DS_Store
+Thumbs.db
