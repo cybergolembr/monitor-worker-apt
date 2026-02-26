@@ -31,3 +31,36 @@ Homepage: https://github.com/cybergolembr
 Description: Monitor Worker for Cybergolem Infrastructure
 License: MIT
 
+Package: monitor-worker
+Architecture: amd64
+Version: 1.0.4
+Priority: optional
+Maintainer: Cybergolem cybergolembr@gmail.com
+Installed-Size: 6440
+Filename: pool/main/cybergolem_worker_1.0.4_amd64.deb
+Size: 2805930
+MD5sum: 712f8da0e34be019bfd6bbb9d7bda596
+SHA1: 49a19b5bb0b25d2c1e3c0aaecf422363c1661feb
+SHA256: 1484a009e919eec125180704291efb3e0b99829ba260e1002e8e1ad5508d66c7
+SHA512: e333f0382de75a5e9bafc85c0bb9f356a10909006d78c10173761da5b907ff488cc67ee39537bfa72ad064a98c43e8289ef6707c76887645aa6d77b0eb21cfd9
+Homepage: https://github.com/cybergolembr
+Description: Monitor Worker for Cybergolem Infrastructure
+Architecture-Variant: amd64v1
+License: MIT
+
+Package: monitor-worker
+Architecture: arm64
+Version: 1.0.4
+Priority: optional
+Maintainer: Cybergolem cybergolembr@gmail.com
+Installed-Size: 5952
+Filename: pool/main/cybergolem_worker_1.0.4_arm64.deb
+Size: 2544610
+MD5sum: 4f672164db21a812bc535e3eb3a34384
+SHA1: a4eb282537ca10eab99398b3cb07843f289c4b85
+SHA256: 157514d9c712f1be8a420d397d601e661029fd81d9b066de7575e03a8d87f47d
+SHA512: 60e8e42e53e37db71be906945f928928996fee75007d25eba04d0cbdffc9b4010637faf25d43f54f30ef2da6a786247b00b1a97d66e420bd7a988ac616b223c1
+Homepage: https://github.com/cybergolembr
+Description: Monitor Worker for Cybergolem Infrastructure
+License: MIT
+
