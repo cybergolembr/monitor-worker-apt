@@ -1,166 +1,289 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberGolem | Monitor Worker Repository</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
+            --primary: #00FF9D;
+            --primary-glow: rgba(0, 255, 157, 0.2);
+            --bg: #050505;
+            --bg-secondary: #0D0D0D;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
             --code-bg: #000000;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: var(--font-sans);
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-primary);
             line-height: 1.6;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .hero-glow {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 50% -20%, rgba(0, 255, 157, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             width: 90%;
-            padding: 40px;
-            background: var(--card-bg);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 80px 0;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        .step {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .code-block {
-            background-color: var(--code-bg);
-            padding: 16px;
-            border-radius: 12px;
-            font-family: 'Fira Code', 'Courier New', monospace;
-            font-size: 0.9rem;
-            position: relative;
-            overflow-x: auto;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .code-block code {
-            color: #818cf8;
-        }
-
-        .copy-btn {
-            position: absolute;
-            right: 12px;
-            top: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: var(--text);
-            padding: 4px 8px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.75rem;
-            transition: all 0.2s;
-        }
-
-        .copy-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 0.875rem;
-            color: var(--text-muted);
+            margin-bottom: 80px;
         }
 
         .badge {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 100px;
-            background: rgba(99, 102, 241, 0.1);
+            padding: 6px 16px;
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid rgba(0, 255, 157, 0.2);
             color: var(--primary);
-            font-weight: 600;
+            border-radius: 99px;
             font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
             margin-bottom: 20px;
+            background: linear-gradient(to right, #FFFFFF, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .sections-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 255, 157, 0.3);
+            box-shadow: 0 20px 40px -20px rgba(0, 255, 157, 0.1);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 .step-num {
+            background: var(--primary);
+            color: #000;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 800;
+        }
+
+        .code-container {
+            position: relative;
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        pre {
+            padding: 24px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #818CF8;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .tutorial-steps {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .tutorial-steps li {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .tutorial-steps li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .tutorial-steps li strong {
+            color: var(--text-primary);
+        }
+
+        .footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            width: 100%;
+            border-top: 1px solid var(--border);
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
         }
     </style>
 </head>
+
 <body>
+    <div class="hero-glow"></div>
+
     <div class="container">
         <header>
-            <div class="badge">Official Package Repository</div>
-            <h1>CyberGolem Monitor Worker</h1>
-            <p class="subtitle">Instale e gerencie seu monitor de infraestrutura com facilidade.</p>
+            <div class="badge">Oficial Repo</div>
+            <h1>CyberGolem Monitor</h1>
+            <p class="subtitle">O braço direito da sua infraestrutura. Simples, rápido e resiliente.</p>
         </header>
 
-        <div class="step">
-            <h2><span>1.</span> Adicionar Repositório</h2>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
-                <code id="step1">
-                    curl -sS https://cybergolembr.github.io/monitor-worker-apt/public.key | sudo gpg --dearmor -o /usr/share/keyrings/monitor-worker-archive-keyring.gpg && \<br>
-                    echo "deb [signed-by=/usr/share/keyrings/monitor-worker-archive-keyring.gpg] https://cybergolembr.github.io/monitor-worker-apt/ stable main" | sudo tee /etc/apt/sources.list.d/monitor-worker.list
-                </code>
+        <div class="sections-grid">
+            <!-- Tutorial section first as requested -->
+            <div class="card">
+                <h2><span class="step-num">0</span> Obter Credenciais</h2>
+                <p>Antes de instalar, você precisa obter as credenciais de ativação no seu painel CyberGolem:</p>
+                <ul class="tutorial-steps">
+                    <li>Acesse o dashboard no seu <strong>Cloud SaaS</strong>.</li>
+                    <li>Vá em <strong>Infraestrutura > Workers</strong>.</li>
+                    <li>Clique em <strong>Novo Worker</strong> ou selecione um existente.</li>
+                    <li>Copie o <span class="highlight">Activated Token (API Key)</span> e o <span
+                            class="highlight">Instance ID</span>.</li>
+                    <li>Se for monitorar logs, anote também o <span class="highlight">Log Stream ID</span>.</li>
+                </ul>
+            </div>
+
+            <!-- Installation options -->
+            <div class="card">
+                <h2><span class="step-num">1</span> Instalação Rápida (Recomendado)</h2>
+                <p>O script de onboarding automatiza a configuração do repositório, solicita suas credenciais e
+                    configura o serviço systemd em um único passo.</p>
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre><code id="code1">curl -sSL https://cybergolembr.github.io/monitor-worker-apt/install.sh | sudo bash</code></pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="step-num">2</span> Instalação Manual</h2>
+                <p>Se preferir configurar manualmente, adicione a chave e o repositório:</p>
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre><code id="code2">curl -sS https://cybergolembr.github.io/monitor-worker-apt/public.key | sudo gpg --dearmor -o /usr/share/keyrings/monitor-worker-archive-keyring.gpg && \
+echo "deb [signed-by=/usr/share/keyrings/monitor-worker-archive-keyring.gpg] https://cybergolembr.github.io/monitor-worker-apt/ stable main" | sudo tee /etc/apt/sources.list.d/monitor-worker.list</code></pre>
+                </div>
+
+                <p style="margin-top: 24px;">Depois instale o pacote:</p>
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre><code id="code3">sudo apt update && sudo apt install monitor-worker</code></pre>
+                </div>
             </div>
         </div>
 
-        <div class="step">
-            <h2><span>2.</span> Instalar</h2>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
-                <code id="step2">
-                    sudo apt update && sudo apt install monitor-worker
-                </code>
-            </div>
-        </div>
-
-        <div class="step" style="text-align: center; margin-top: 40px;">
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-                Prefere automação completa? Use o serviço de instalação rápida:
-            </p>
-            <div class="code-block" style="display: inline-block; min-width: 300px;">
-                <code>curl -sSL https://cybergolembr.github.io/monitor-worker-apt/install.sh | sudo bash</code>
-            </div>
-        </div>
-
-        <div class="footer">
-            Developed by CyberGolem &copy; 2026. All rights reserved.
-        </div>
+        <footer class="footer">
+            Developed with &hearts; by <span style="color: var(--text-secondary)">CyberGolem Team</span> &copy; 2026
+        </footer>
     </div>
 
     <script>
@@ -174,4 +297,5 @@
         }
     </script>
 </body>
+
 </html>
