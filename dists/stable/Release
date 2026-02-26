@@ -1,0 +1,32 @@
+Origin: CyberGolem
+Label: CyberGolem Monitor Worker
+Suite: stable
+Codename: stable
+Architectures: amd64 arm64
+Components: main
+Description: CyberGolem Monitor Worker Repository
+Date: Thu, 26 Feb 2026 23:26:22 +0000
+MD5Sum:
+ 6cd30d99a04c5acf3f8f800cae93e392              215 Release
+ 066beb194fa4a1fa1221a1c268ff61be             1280 main/binary-amd64/Packages
+ 4bf5613e5ad1de0d34b5d61ea53feb15              665 main/binary-amd64/Packages.gz
+ 066beb194fa4a1fa1221a1c268ff61be             1280 main/binary-arm64/Packages
+ 4bf5613e5ad1de0d34b5d61ea53feb15              665 main/binary-arm64/Packages.gz
+SHA1:
+ 64c44330d008aef3e49e2ab25616e3a3b6473d6c              215 Release
+ 98efee6f4b2af0d1b375ce56c7c2c456a2ed3be7             1280 main/binary-amd64/Packages
+ 022eadb40854b59ad97c5fd1779fd848a0c8d29c              665 main/binary-amd64/Packages.gz
+ 98efee6f4b2af0d1b375ce56c7c2c456a2ed3be7             1280 main/binary-arm64/Packages
+ 022eadb40854b59ad97c5fd1779fd848a0c8d29c              665 main/binary-arm64/Packages.gz
+SHA256:
+ 343ee3b97bea9c27f368ffdaeece9aa8cdc6b47cd7a5ee730fce2862f3bb5b6d              215 Release
+ 554af4e82a5ce28c22b3b128cbdfe166ea9e66512b852d956bd7481b3305902e             1280 main/binary-amd64/Packages
+ 99a3c14517ad03186da1f674f56e90892a6b9a1e085a5b828a3d3a2e57a0755a              665 main/binary-amd64/Packages.gz
+ 554af4e82a5ce28c22b3b128cbdfe166ea9e66512b852d956bd7481b3305902e             1280 main/binary-arm64/Packages
+ 99a3c14517ad03186da1f674f56e90892a6b9a1e085a5b828a3d3a2e57a0755a              665 main/binary-arm64/Packages.gz
+SHA512:
+ e2df25dc0d75f0cf99c77ca6c2d5bfe295cb21279c3ea6d20943e500aff5848dcdd1ce72beaaf5aae96a706a7b4cb07dbac218b86d3ab80ae58fa62211a6b709              215 Release
+ 2ff9236fd5eecb31f7ed038f266ef30778c0c7ca55d38427d94f7f1382ea069355dd676112a9142476ab94201f7d13adbf2272e7793675579a4975437438bd73             1280 main/binary-amd64/Packages
+ 924be07a3f872acab2209f01ccf764605eda5fd477a601aa20ecc95d868eb858e9bea38cdad3a84fcf6f947b0f763897667820a06047f85baa1f9773ea9d72c6              665 main/binary-amd64/Packages.gz
+ 2ff9236fd5eecb31f7ed038f266ef30778c0c7ca55d38427d94f7f1382ea069355dd676112a9142476ab94201f7d13adbf2272e7793675579a4975437438bd73             1280 main/binary-arm64/Packages
+ 924be07a3f872acab2209f01ccf764605eda5fd477a601aa20ecc95d868eb858e9bea38cdad3a84fcf6f947b0f763897667820a06047f85baa1f9773ea9d72c6              665 main/binary-arm64/Packages.gz
